@@ -3,6 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ru.com.m74.libs</groupId>
+        <artifactId>lib-parent</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
     <groupId>ru.com.m74</groupId>
     <artifactId>common-libs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
