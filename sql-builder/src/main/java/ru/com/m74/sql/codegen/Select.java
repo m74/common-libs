@@ -74,13 +74,14 @@ public class Select {
      * @param str
      * @return
      */
-    public Select where(String str) {
+    public Select where(String... str) {
         this.where = new Where(str);
         return this;
     }
 
     public Select and(String... str) {
-        where.and(str);
+        if (where != null) where.and(str);
+        else where(str);
         return this;
     }
 
