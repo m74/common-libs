@@ -17,5 +17,10 @@
 
     <modules>
         <module>sql-builder</module>
+        <module>format-currency</module>
+        <module>npchk_nalog_ru</module>
+        <module>1c_orgregister</module>
+        <module>1c-parser</module>
+        <module>random-generator</module>
     </modules>
 </project>

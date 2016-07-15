@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ru.mixam</groupId>
+        <artifactId>jsw</artifactId>
+        <version>0.0.1</version>
+    </parent>
+    <artifactId>1c-parser</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>ru.mixam.libs</groupId>
+            <artifactId>logger</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.mixam</groupId>
+            <artifactId>jpa-base</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.5.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ru.com.m74</groupId>
+            <artifactId>common-utils</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
+    <groupId>ru.mixam.libs</groupId>
+</project>

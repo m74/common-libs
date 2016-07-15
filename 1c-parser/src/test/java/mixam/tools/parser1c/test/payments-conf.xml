@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<parser charset="windows-1251">
+  <property key="ВерсияФормата" name="version"/>
+  <property key="Кодировка" name="encoding"/>
+  <property key="Получатель" name="recipier"/>
+  <property key="ДатаСоздания" name="createDate" type="date"/>
+  <property key="ВремяСоздания" name="createTime"/>
+  <property key="ДатаНачала" name="begin" type="date"/>
+  <property key="ДатаКонца" name="end" type="date"/>
+  <property key="РасчСчет" name="account"/>
+    
+<!--
+  <handler start="СекцияРасчСчет" end="КонецРасчСчет" entityClass="mixam.tools.parser1c.stubs.Account">
+    <property key="ДатаНачала" name="begin" type="date"/>
+    <property key="ДатаКонца" name="end" type="date"/>
+    <property key="РасчСчет" name="account"/>
+    <property key="НачальныйОстаток" name="before" type="double"/>
+    <property key="ВсегоПоступило" name="in" type="double"/>
+    <property key="ВсегоСписано" name="out" type="double"/>
+    <property key="КонечныйОстаток" name="after" type="double"/>
+  </handler>
+-->
+    
+  <handler start="СекцияДокумент" end="КонецДокумента" entityClass="mixam.tools.parser1c.test.Payment">
+    <property key="СекцияДокумент" name="title"/>
+    <property key="Номер" name="number"/>
+    <property key="Дата" name="date" type="date"/>
+    <property key="ДатаСписано" name="sendAt" type="date"/>
+    <property key="ДатаПоступило" name="receiveAt" type="date"/>
+    <property key="Сумма" name="sum" type="double"/>
+    <property key="НазначениеПлатежа" name="details"/>
+
+    <property key="ПлательщикСчет" name="payerAccount"/>
+    <property key="ПлательщикИНН" name="payerInn"/>
+    <property key="ПлательщикКПП" name="payerKpp"/>
+    <property key="Плательщик1" name="payerTitle"/>
+    <property key="ПлательщикБИК" name="payerBik"/>
+    <property key="ПлательщикБанк1" name="payerBank"/>
+
+    <property key="ПолучательСчет" name="recipierAccount"/>        
+    <property key="ПолучательИНН" name="recipierInn"/>
+    <property key="ПолучательКПП" name="recipierKpp"/>
+    <property key="Получатель1" name="recipierTitle"/>
+    <property key="ПолучательБИК" name="recipierBik"/>
+    <property key="ПолучательБанк1" name="recipierBank"/>
+        
+    <!--        
+      <property key="СтатусСоставителя" name="createrState"/>
+
+      <property key="ОКАТО" name="okato"/>
+      <property key="ВидОплаты" name="type"/>
+      <property key="ПоказательКБК" name="estimate.kbk"/>
+      <property key="ПоказательОснования" name="estimate.purpose"/>
+      <property key="ПоказательПериода" name="estimate.period"/>
+      <property key="ПоказательНомера" name="estimate.number"/>
+      <property key="ПоказательДаты" name="estimate.date"/>
+      <property key="ПоказательТипа" name="estimate.type"/>
+      -->
+  </handler>
+</parser>
