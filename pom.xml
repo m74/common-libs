@@ -12,7 +12,8 @@
 
     <groupId>ru.com.m74</groupId>
     <artifactId>common-libs</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
+
     <packaging>pom</packaging>
 
     <modules>
@@ -22,5 +23,6 @@
         <module>1c_orgregister</module>
         <module>1c-parser</module>
         <module>random-generator</module>
+        <module>logger</module>
     </modules>
 </project>
