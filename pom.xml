@@ -24,5 +24,6 @@
         <module>1c-parser</module>
         <module>random-generator</module>
         <module>logger</module>
+        <module>commons</module>
     </modules>
 </project>

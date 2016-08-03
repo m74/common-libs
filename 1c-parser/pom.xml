@@ -6,18 +6,23 @@
         <artifactId>common-libs</artifactId>
         <version>0.0.1</version>
     </parent>
+
+    <groupId>ru.com.m74</groupId>
+    <version>0.0.1</version>
     <artifactId>1c-parser</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>ru.mixam.libs</groupId>
             <artifactId>logger</artifactId>
             <version>0.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>ru.mixam</groupId>
-            <artifactId>jpa-base</artifactId>
-            <version>0.0.1</version>
-        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>ru.mixam</groupId>-->
+            <!--<artifactId>jpa-base</artifactId>-->
+            <!--<version>0.0.1</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -39,9 +44,8 @@
         </dependency>
         <dependency>
             <groupId>ru.com.m74</groupId>
-            <artifactId>common-utils</artifactId>
+            <artifactId>commons</artifactId>
             <version>0.0.1</version>
         </dependency>
     </dependencies>
-    <groupId>ru.mixam.libs</groupId>
 </project>

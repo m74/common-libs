@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>ru.com.m74</groupId>
-        <artifactId>common-libs</artifactId>
+        <groupId>ru.com.m74.webapp</groupId>
+        <artifactId>webapp-parent</artifactId>
         <version>0.0.1</version>
     </parent>
 
     <artifactId>logger</artifactId>
-    <groupId>ru.mixam.libs</groupId>
+    <groupId>ru.com.m74</groupId>
     <version>0.0.1</version>
 
     <dependencies>
