@@ -13,6 +13,9 @@
     <artifactId>commons</artifactId>
     <version>0.0.1</version>
 
+    <properties>
+        <java.version>1.7</java.version>
+    </properties>
 
     <dependencies>
         <dependency>
