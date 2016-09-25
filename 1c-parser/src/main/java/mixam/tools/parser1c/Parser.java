@@ -9,15 +9,15 @@
 
 package mixam.tools.parser1c;
 
+import mixam.toolkit.BeanTools;
+import mixam.tools.parser1c.stubs.Account;
+import mixam.tools.parser1c.stubs.Variables;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Hashtable;
 import java.util.List;
-
-import mixam.toolkit.BeanTools;
-import mixam.tools.parser1c.stubs.Account;
-import mixam.tools.parser1c.stubs.Variables;
 
 /**
  * 
@@ -68,7 +68,7 @@ public class Parser {
 	private void parseLine(String line) throws Exception {
 		String arr[] = line.split("=", 2);
 		String key = arr[0];
-		String val = arr.length > 1 ? arr[1] : null;
+		String val = arr.length > 1 ? arr[1].trim() : null;
 
 		Worker<?> w = workersMap.get(key);
 		if (w != null) {
