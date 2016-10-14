@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>ru.com.m74</groupId>
-            <artifactId>common-utils</artifactId>
+            <artifactId>commons</artifactId>
             <version>0.0.1</version>
         </dependency>
     </dependencies>
