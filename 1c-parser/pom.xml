@@ -18,7 +18,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>ru.mixam.libs</groupId>
+            <groupId>ru.com.m74</groupId>
             <artifactId>logger</artifactId>
             <version>0.0.1</version>
         </dependency>
