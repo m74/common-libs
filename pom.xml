@@ -25,5 +25,6 @@
         <module>random-generator</module>
         <module>logger</module>
         <module>commons</module>
+        <module>common-utils</module>
     </modules>
 </project>
