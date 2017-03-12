@@ -1,7 +1,7 @@
 package mixam.tools.parser1c;
 
 import mixam.toolkit.BeanTools;
-import ru.com.m74.utilities.TK;
+import ru.com.m74.utilities.Utils;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ public abstract class DefaultWorker<E> extends Worker<E> {
     }
 
     private static boolean contains(ParserKey key, String val) {
-        if (TK.isEmpty(val) || key == null)
+        if (Utils.isEmpty(val) || key == null)
             return false;
 
         if (key.value().equals(val))

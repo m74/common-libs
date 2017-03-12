@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.util.Collection;
 
-public class TK {
+public class Utils {
     /**
      * Конвертировать строку из iso8859-1 в utf8
      *
@@ -34,7 +34,7 @@ public class TK {
     /**
      * Пустой ли объект
      *
-     * @param o
+     * @param o Строка,Массив,Число
      * @return
      */
 
@@ -48,4 +48,7 @@ public class TK {
         return o == null;
     }
 
+    public static boolean isNotEmpty(Object o) {
+        return !isEmpty(o);
+    }
 }

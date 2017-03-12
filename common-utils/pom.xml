@@ -9,25 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.com.m74</groupId>
-    <artifactId>commons</artifactId>
+    <artifactId>common-utils</artifactId>
     <version>0.0.1</version>
 
     <properties>
         <java.version>1.7</java.version>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>ru.com.m74.libs</groupId>
-            <artifactId>common-utils</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        <dependency>
-            <artifactId>logger</artifactId>
-            <groupId>ru.com.m74</groupId>
-            <version>0.0.1</version>
-        </dependency>
-    </dependencies>
 
 </project>
