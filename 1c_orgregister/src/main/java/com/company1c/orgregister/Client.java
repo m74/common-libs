@@ -1,21 +1,22 @@
 package com.company1c.orgregister;
 
-import com.company1c.orgregister.corporation.РеквизитыЮрЛица;
-import com.company1c.orgregister.corporation.РеквизитыЮрЛица.СвОКВЭД;
-import com.company1c.orgregister.corporation.РеквизитыЮрЛица.СвУправлДеят.СведДолжнФЛ;
-import com.company1c.orgregister.ws.RequisitesWebServiceEndpoint2;
-import com.company1c.orgregister.ws.RequisitesWebServiceEndpointImpl2Service;
-import mixam.toolkit.BeanTools;
+import com.company1c.orgregister.corporation.StringPropertyType;
+import com.company1c.orgregister.ws.RequisitesWebServiceEndpoint7;
+import com.company1c.orgregister.ws.RequisitesWebServiceEndpointImpl7Service;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.lang.reflect.Field;
 import java.net.Authenticator;
 import java.net.MalformedURLException;
 import java.net.PasswordAuthentication;
-import java.util.ArrayList;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class Client {
 
-    public static РеквизитыЮрЛица getРеквизитыЮрЛица(final String username, final String password, String inn) {
+    public static Object getРеквизитыЮрЛица(final String username, final String password, String inn) {
         Authenticator.setDefault(new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -23,175 +24,88 @@ public class Client {
             }
         });
 
-        RequisitesWebServiceEndpointImpl2Service service = new RequisitesWebServiceEndpointImpl2Service();
-        RequisitesWebServiceEndpoint2 port = service.getRequisitesWebServiceEndpointImpl2Port();
+        RequisitesWebServiceEndpointImpl7Service service = new RequisitesWebServiceEndpointImpl7Service();
+        RequisitesWebServiceEndpoint7 port = service.getRequisitesWebServiceEndpointImpl7Port();
 
-        return port.getCorporationRequisitesByINN(inn, "БухгалтерияПредприятияКОРП");
-
+        if (inn.length() == 12)
+            return port.getEntrepreneurRequisitesByINN(inn, "БухгалтерияПредприятияКОРП");
+        else if (inn.length() == 10)
+            return port.getCorporationRequisitesByINN(inn, "БухгалтерияПредприятияКОРП");
+        else throw new RuntimeException("НЕ корректный ИНН");
     }
 
-    public static Report getReport(String inn, String username, String password) {
-        РеквизитыЮрЛица recv = getРеквизитыЮрЛица(username, password, inn);
-
-        Report r = new Report();
-
-        r.put(recv, "ИНН");
-        r.put(recv, "КПП");
-        r.put(recv, "ОГРН");
-
-        r.put("СвНаимЮЛ");
-        r.put(recv, "СвНаимЮЛ.НаимЮЛПолн");
-        r.put(recv, "СвНаимЮЛ.НаимЮЛСокр");
-        r.put(recv, "СвНаимЮЛ.ГРН");
-        r.put(recv, "СвНаимЮЛ.НаимЮЛФирм");
-        r.put(recv, "СвНаимЮЛ.ДатаНачДейств");
-        r.put(recv, "СвНаимЮЛ.ДатаОбрЮЛ");
-        r.put(recv, "СвНаимЮЛ.ДатаПрекрЮЛ");
-        r.put(recv, "СвНаимЮЛ.ОПФ.КодОПФ");
-        r.put(recv, "СвНаимЮЛ.ОПФ.ПолнНаимОПФ");
-        r.put(recv, "СвНаимЮЛ.ОПФ.СпрОПФ");
-        r.put("СвАдрес");
-        r.put(recv, "СвАдрес.ГРН");
-        r.put(recv, "СвАдрес.ПризнОтсутАдресЮЛ");
-        r.put(recv, "СвАдрес.Адрес.Страна");
-        r.put(recv, "СвАдрес.Адрес.Состав");
-        r.put(recv, "СвАдрес.ДатаНачДейств");
-
-        r.put("СвОКВЭД");
-        for (СвОКВЭД o : recv.getСвОКВЭД()) {
-            r.put(o, "ГРН");
-            r.put(o, "ДатаНачДейств");
-            r.put(o, "КодОКВЭД");
-            r.put(o, "ПрОснДоп");
-        }
-        r.put("СвРегПФ");
-        r.put(recv, "СвРегПФ.ГРН");
-        r.put(recv, "СвРегПФ.РегНомПФ");
-        r.put(recv, "СвРегПФ.ДатаНачДейств");
-        r.put(recv, "СвРегПФ.ДатаРег");
-        r.put(recv, "СвРегПФ.СвОргПФ.КодПФ");
-        r.put(recv, "СвРегПФ.СвОргПФ.НаимПФ");
-
-        r.put("СвРегФСС");
-        r.put(recv, "СвРегФСС.ГРН");
-        r.put(recv, "СвРегФСС.РегНомФСС");
-        r.put(recv, "СвРегФСС.ДатаНачДейств");
-        r.put(recv, "СвРегФСС.ДатаРег");
-        r.put(recv, "СвРегФСС.СвОргФСС.КодФСС");
-        r.put(recv, "СвРегФСС.СвОргФСС.НаимФСС");
-
-        r.put("СвСтатусРО");
-        r.put(recv, "СвСтатусРО.ГРН");
-        r.put(recv, "СвСтатусРО.ДатаНачДейств");
-        r.put(recv, "СвСтатусРО.СвРегОрг.КодНО");
-        r.put(recv, "СвСтатусРО.СвРегОрг.НаимНО");
-        r.put(recv, "СвСтатусРО.СвСтатус.НаимСтатусЮЛ");
-        r.put(recv, "СвСтатусРО.СвСтатус.КодСтатусЮЛ");
-
-        r.put("СвУправлДеят");
-        r.put(recv, "СвУправлДеят.УпрОргИн");
-        r.put(recv, "СвУправлДеят.УпрОргРос");
-
-        r.put("СвУправлДеят.СведДолжнФЛ");
-        for (СведДолжнФЛ o : recv.getСвУправлДеят().getСведДолжнФЛ()) {
-            r.put(o, "ГРН");
-            r.put(o, "ВидДолжн");
-            r.put(o, "ИННФЛ");
-            r.put(o, "НаимВидДолжн");
-            r.put(o, "НаимДолжн");
-            r.put(o, "НомТел");
-            r.put(o, "ОГРНИП");
-            r.put(o, "ДатаНачДейств");
-            r.put(o, "СвДискв");
-            r.put(o, "ФИО.Имя");
-            r.put(o, "ФИО.Отчество");
-            r.put(o, "ФИО.Фамилия");
-        }
-        r.put("СвУчетНО");
-        r.put(recv, "СвУчетНО.ГРН");
-        r.put(recv, "СвУчетНО.ИНН");
-        r.put(recv, "СвУчетНО.КПП");
-        r.put(recv, "СвУчетНО.ДатаНачДейств");
-        r.put(recv, "СвУчетНО.ДатаПостУч");
-        r.put("СвУчетНО.СвНО");
-        r.put(recv, "СвУчетНО.СвНО.КодНО");
-        r.put(recv, "СвУчетНО.СвНО.НаимНО");
-
-        return r;
+    public static String getInfo(String inn) throws IllegalAccessException {
+        Object dto = getРеквизитыЮрЛица("9807471", "7q5J3V8", inn);
+        if (dto == null) throw new RuntimeException("Компания с таким инн не найдена: " + inn);
+        return toString(null, dto);
     }
 
-    public static void main(String[] args) throws MalformedURLException {
-
-        final String username = args[0];
-        final String password = args[1];
-        final String inn = args[2];
-        System.out.println(getReport(inn, username, password));
+    public static void main(String[] args) throws MalformedURLException, IllegalAccessException {
+        final String inn = "7743098817";
+//        final String inn = "773113246935";
+        System.out.println(getInfo(inn));
     }
 
-    static class ReportItem {
-        String key;
-        String label;
-        Object src;
 
-        ReportItem(Object src, String key, String label) {
-            this.src = src;
-            this.key = key;
-            this.label = label;
-        }
+    private static Format df = new SimpleDateFormat("dd.MM.yy");
 
-        String value() {
-            return BeanTools.getString(src, key);
-        }
-    }
+    private static String toString(String path, Object dto) throws IllegalAccessException {
+        String str = "";
+        for (Field f : dto.getClass().getDeclaredFields()) {
+//            BeanTools.getFieldValue()
+            f.setAccessible(true);
+            Object val = f.get(dto);
 
-    static class Report {
-        List<Object> parts = new ArrayList<Object>();
+            String name = f.getName();
+//            String name;
+//            if (f.isAnnotationPresent(XmlElement.class)) {
+//                name = f.getAnnotation(XmlElement.class).name();
+//            } else if (f.isAnnotationPresent(XmlAttribute.class)) {
+//                name = f.getAnnotation(XmlAttribute.class).name();
+//            } else {
+//                name = f.getName();
+//            }
 
-        void put(Object src, String key) {
-            String arr[] = key.split("\\.");
-            parts.add(new ReportItem(src, key, arr[arr.length - 1]));
-        }
-
-        void put(String str) {
-            parts.add(str);
-        }
-
-        // void put(Object src, String key, String label) {
-        // parts.add(new ReportItem(src, key, label));
-        // }
-
-        public String toString() {
-            StringBuffer buff = new StringBuffer();
-            int max = 0;
-            for (Object part : parts) {
-                if (part instanceof ReportItem) {
-                    max = Math.max(max, ((ReportItem) part).label.length());
-                }
+            if (path != null) {
+                name = path + "." + name;
             }
 
-            for (Object part : parts) {
-                if (part instanceof ReportItem) {
-                    ReportItem item = (ReportItem) part;
-                    buff.append(item.label);
-                    for (int i = item.label.length(); i < max; i++) {
-                        buff.append(" ");
-                    }
-                    buff.append(" : ");
-                    buff.append(item.value() + "\n");
-                } else {
-                    buff.append("// ");
-                    int len = (72 - ((String) part).length()) / 2;
-                    for (int i = 0; i < len; i++) {
-                        buff.append("=");
-                    }
-                    buff.append(" " + part + " ");
-                    for (int i = 0; i < len; i++) {
-                        buff.append("=");
-                    }
-                    buff.append(" //\n");
+            if (val == null) {
+                str += name + ": <не задано>\n";
+            } else if (val instanceof String) {
+                str += name + ": " + val + "\n";
+            } else if (val instanceof JAXBElement) {
+                str += format(name, (JAXBElement) val) + "\n";
+//                str += toString(name, ((JAXBElement) val).getValue());
+            } else if (val instanceof List) {
+//                str += name + "\n";
+                int i = 0;
+                for (Object item : (List) val) {
+                    str += toString(name + "[" + (i++) + "]", item) + "\n";
                 }
+            } else if (val instanceof StringPropertyType) {
+                StringPropertyType type = (StringPropertyType) val;
+                str += name + ": " + type.getValue() + " от " + format(type.getFrom()) + "\n";
+            } else if (val instanceof XMLGregorianCalendar) {
+                str += name + ": " + format((XMLGregorianCalendar) val) + "\n";
+            } else {
+                str += toString(name, val) + "\n";
             }
-            return buff.toString();
         }
+        return str;
+    }
+
+    private static String format(String name, JAXBElement val) throws IllegalAccessException {
+        if (val.getValue() instanceof JAXBElement) {
+            return format(name, (JAXBElement) val.getValue());
+        } else if (val.getValue() instanceof String) {
+            return String.valueOf(val.getValue());
+        } else {
+            return toString(name, val.getValue());
+        }
+    }
+
+    private static String format(XMLGregorianCalendar val) {
+        return df.format((val).toGregorianCalendar().getTime());
     }
 }

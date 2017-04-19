@@ -22,8 +22,6 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;attribute name="НаимНО">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="10"/>
- *             &lt;maxLength value="250"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>

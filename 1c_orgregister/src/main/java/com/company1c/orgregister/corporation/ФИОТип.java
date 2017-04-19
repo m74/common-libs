@@ -21,24 +21,18 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;attribute name="Фамилия">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="1"/>
- *             &lt;maxLength value="60"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
  *       &lt;attribute name="Имя">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="1"/>
- *             &lt;maxLength value="60"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
  *       &lt;attribute name="Отчество">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="1"/>
- *             &lt;maxLength value="60"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>

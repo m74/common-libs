@@ -8,29 +8,29 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Сведения об организационно-правовой форме
+ * Адрес за пределами территории Российской Федерации
  * 
- * <p>Java class for ОПФВыпТип complex type.
+ * <p>Java class for АдрИнТип complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="ОПФВыпТип">
+ * &lt;complexType name="АдрИнТип">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="СпрОПФ">
+ *       &lt;attribute name="ОКСМ">
+ *         &lt;simpleType>
+ *           &lt;restriction base="{http://company1c.com/orgregister/corporation}ОКСМТип">
+ *           &lt;/restriction>
+ *         &lt;/simpleType>
+ *       &lt;/attribute>
+ *       &lt;attribute name="НаимСтран">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
- *       &lt;attribute name="КодОПФ">
- *         &lt;simpleType>
- *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *           &lt;/restriction>
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="ПолнНаимОПФ">
+ *       &lt;attribute name="АдрИн">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *           &lt;/restriction>
@@ -44,86 +44,86 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "\u041e\u041f\u0424\u0412\u044b\u043f\u0422\u0438\u043f")
-public class ОПФВыпТип {
+@XmlType(name = "\u0410\u0434\u0440\u0418\u043d\u0422\u0438\u043f")
+public class АдрИнТип {
 
-    @XmlAttribute(name = "\u0421\u043f\u0440\u041e\u041f\u0424")
-    protected String спрОПФ;
-    @XmlAttribute(name = "\u041a\u043e\u0434\u041e\u041f\u0424")
-    protected String кодОПФ;
-    @XmlAttribute(name = "\u041f\u043e\u043b\u043d\u041d\u0430\u0438\u043c\u041e\u041f\u0424")
-    protected String полнНаимОПФ;
+    @XmlAttribute(name = "\u041e\u041a\u0421\u041c")
+    protected String оксм;
+    @XmlAttribute(name = "\u041d\u0430\u0438\u043c\u0421\u0442\u0440\u0430\u043d")
+    protected String наимСтран;
+    @XmlAttribute(name = "\u0410\u0434\u0440\u0418\u043d")
+    protected String адрИн;
 
     /**
-     * Gets the value of the спрОПФ property.
+     * Gets the value of the оксм property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getСпрОПФ() {
-        return спрОПФ;
+    public String getОКСМ() {
+        return оксм;
     }
 
     /**
-     * Sets the value of the спрОПФ property.
+     * Sets the value of the оксм property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setСпрОПФ(String value) {
-        this.спрОПФ = value;
+    public void setОКСМ(String value) {
+        this.оксм = value;
     }
 
     /**
-     * Gets the value of the кодОПФ property.
+     * Gets the value of the наимСтран property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getКодОПФ() {
-        return кодОПФ;
+    public String getНаимСтран() {
+        return наимСтран;
     }
 
     /**
-     * Sets the value of the кодОПФ property.
+     * Sets the value of the наимСтран property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setКодОПФ(String value) {
-        this.кодОПФ = value;
+    public void setНаимСтран(String value) {
+        this.наимСтран = value;
     }
 
     /**
-     * Gets the value of the полнНаимОПФ property.
+     * Gets the value of the адрИн property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getПолнНаимОПФ() {
-        return полнНаимОПФ;
+    public String getАдрИн() {
+        return адрИн;
     }
 
     /**
-     * Sets the value of the полнНаимОПФ property.
+     * Sets the value of the адрИн property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setПолнНаимОПФ(String value) {
-        this.полнНаимОПФ = value;
+    public void setАдрИн(String value) {
+        this.адрИн = value;
     }
 
 }

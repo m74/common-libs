@@ -1,5 +1,5 @@
 
-package com.company1c.orgregister.entrepreneur;
+package com.company1c.orgregister.corporation;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -21,16 +21,12 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;attribute name="КодСПВЗ">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;length value="5"/>
- *             &lt;pattern value="[0-9]{5}"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
  *       &lt;attribute name="НаимВидЗап">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="5"/>
- *             &lt;maxLength value="500"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>

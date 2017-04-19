@@ -24,8 +24,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;attribute name="НаимСтран">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="1"/>
- *             &lt;maxLength value="250"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
@@ -33,24 +31,18 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;attribute name="РегНомер">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="1"/>
- *             &lt;maxLength value="50"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
  *       &lt;attribute name="НаимРегОрг">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="1"/>
- *             &lt;maxLength value="255"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
  *       &lt;attribute name="АдрСтр">
  *         &lt;simpleType>
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *             &lt;minLength value="1"/>
- *             &lt;maxLength value="255"/>
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
