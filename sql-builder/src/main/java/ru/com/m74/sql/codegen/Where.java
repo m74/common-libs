@@ -22,6 +22,11 @@ public class Where {
 
     @Override
     public String toString() {
-        return "where " + String.join(" and ", conditions);
+        return toString(" ");
+    }
+
+    public String toString(String delim) {
+        return "where" + delim + String.join(delim + "and ", conditions);
+
     }
 }

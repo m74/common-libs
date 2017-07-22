@@ -85,23 +85,32 @@ public class Select {
         return this;
     }
 
+    @Override
     public String toString() {
+        return toString(" ");
+    }
+
+    public String toPrettyString() {
+        return toString("\n");
+    }
+
+    public String toString(String delim) {
         if (tableName == null) throw new RuntimeException("TableName is null");
 
-        String sql = "select " +
-                (fields.isEmpty() ? "*" : String.join(",", fields)) + " " +
-                "from " + tableName;
+        String sql = "select" + delim;
+        sql += (fields.isEmpty() ? "*" : String.join(delim + ",", fields)) +
+                delim + "from " + tableName;
 
         if (!joins.isEmpty())
-            sql += " " + String.join(" ", joins);
+            sql += delim + String.join(delim, joins);
 
-        if (where != null) sql += " " + where;
+        if (where != null) sql += delim + where.toString(delim);
 
         if (group != null)
-            sql += " group by " + group;
+            sql += delim + "group by " + group;
 
         if (orderBy != null)
-            sql += " order by " + orderBy;
+            sql += delim + "order by " + orderBy;
 
         return sql;
     }
