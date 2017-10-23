@@ -98,7 +98,7 @@ public class Select {
         if (tableName == null) throw new RuntimeException("TableName is null");
 
         String sql = "select" + delim;
-        sql += (fields.isEmpty() ? "*" : String.join(delim + ",", fields)) +
+        sql += (fields.isEmpty() ? "*" : String.join("," + delim, fields)) +
                 delim + "from " + tableName;
 
         if (!joins.isEmpty())

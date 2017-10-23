@@ -28,7 +28,7 @@ public class Test {
         q.join("n_registry as nr");
 
 
-        assert "select a.*,nr.id from VSG_ACTION a join n_registry as nr where (id=1) and (name='test') group by id order by id"
+        assert "select a.*, nr.id from VSG_ACTION a join n_registry as nr where (id=1) and (name='test') group by id order by id"
                 .equals(q.toString());
 
         q.select("count(*)");
